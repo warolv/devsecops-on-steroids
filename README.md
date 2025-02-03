@@ -1,12 +1,10 @@
 # DevSecOps on Steroids
 
+### A comprehensive tutorial series on essential DevSecOps tools and best practices.
+
 ![devsecops-on-steroids](images/devsecops-on-steroids-thumb.png)
 
-## A comprehensive tutorial series on essential DevSecOps tools and best practices.
-
 ### 1. [Secure namespaces in Kubernetes cluster using RBAC](secure-ns-k8s-rbac.md)
-
-![devsecops-on-steroids](images/secure-ns-k8s-rbac/1.png)
 
 In this tutorial, I will show how to secure ‘system‘ namespaces in EKS cluster by user access.
 
@@ -14,8 +12,6 @@ In this tutorial, I will show how to secure ‘system‘ namespaces in EKS clust
 
 
 ### 2. [Threat detection with Falco and EKS Audit Logs](falco-k8s-audit-logs.md)
-
-![devsecops-on-steroids](images/falco-k8s-audit-logs/0.png)
 
 In this tutorial, I will show how to:
 
@@ -25,8 +21,6 @@ In this tutorial, I will show how to:
 * Overview of most useful rules for my opinion
 
 ### 3. [Threat detection with Falco on EKS and using kernel module driver](falco-syscalls.md)
-
-![devsecops-on-steroids](images/falco-syscalls/0.png)
 
 In previous tutorial I used **Falco** plugin for **K8s Audit Logs**
 
