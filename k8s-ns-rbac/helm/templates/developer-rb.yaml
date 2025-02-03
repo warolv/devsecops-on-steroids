@@ -1,0 +1,32 @@
+# Create role-binding with admin permissins for 'developer namespaces'
+{{- range .Values.devNamespace }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name:  "{{ . }}-dev-admin-rb"
+  namespace: {{ . }}
+subjects:
+- kind: Group
+  name: developer
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: admin
+  apiGroup: rbac.authorization.k8s.io
+---
+{{- end }}
+# Create role-binding with view permissins for 'system namespaces'
+{{- range .Values.systemNamespace }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name:  "{{ . }}-dev-view-rb"
+  namespace: {{ . }}
+subjects:
+- kind: Group
+  name: developer
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
