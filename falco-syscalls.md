@@ -1,6 +1,6 @@
 ## Threat detection with Falco on EKS and using kernel module driver
 
-![k8s-security](images/falco-syscalls/0.png)
+![devsecops-on-steroids](images/falco-syscalls/0.png)
 
 [This tutorial on my blog](https://igorzhivilo.com/2024/05/12/falco-syscalls/)
 
@@ -161,7 +161,7 @@ falco:
 podPriorityClassName: "system-cluster-critical"
 ```
 
-![k8s-security](/images/falco-syscalls/1.png)
+![devsecops-on-steroids](/images/falco-syscalls/1.png)
 
 
 > Pod Priority and Preemption
@@ -180,7 +180,7 @@ helm install falco falcosecurity/falco --namespace falco \
 --create-namespace -f values.yaml
 ```
 
-![k8s-security](/images/falco-syscalls/2.png)
+![devsecops-on-steroids](/images/falco-syscalls/2.png)
 
 DaemonSet deployed succefully to all(11) worker nodes in my case.
 
@@ -255,13 +255,13 @@ Let's test 'Terminal shell in container' rule for example, for this you need to 
 kubectl exec -it any-pod -- /bin/sh
 ```
 
-![k8s-security](/images/falco-syscalls/3.png)
+![devsecops-on-steroids](/images/falco-syscalls/3.png)
 
 You will see notifications coming to a Slack channel you defined with a webhook ID (with a slight difference).
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
-The code of helm chart created you can find in my [repo](https://github.com/warolv/k8s-security)
+The code of helm chart created you can find in my [repo](https://github.com/warolv/devsecops-on-steroids)
 
 Please subscribe to my [YT channel](https://www.youtube.com/@igorzhivilo) and [twitter](https://twitter.com/warolv), to be notified when the next tutorial is published.
 

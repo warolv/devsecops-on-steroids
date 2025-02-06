@@ -1,6 +1,6 @@
 ## Secure namespaces in Kubernetes cluster using RBAC
 
-![k8s-security](images/secure-ns-k8s-rbac/1.png)
+![devsecops-on-steroids](images/secure-ns-k8s-rbac/1.png)
 
 [This tutorial on my blog](https://igorzhivilo.com/2024/01/14/secure-namespaces-k8s-rbac/)
 
@@ -56,7 +56,7 @@ helm create secure-system-ns
 
 Delete everything from ‘templates’, leave only ‘_helpers.tpl’ and NOTES.txt.
 
-![k8s-security](images/secure-ns-k8s-rbac/2.png)
+![devsecops-on-steroids](images/secure-ns-k8s-rbac/2.png)
 
 ### Define RBAC for ‘developer’ group
 

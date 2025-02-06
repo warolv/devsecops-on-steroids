@@ -1,6 +1,6 @@
 ## Threat detection with Falco and EKS Audit Logs
 
-![k8s-security](images/falco-k8s-audit-logs/0.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/0.png)
 
 [This tutorial on my blog](https://igorzhivilo.com/2024/05/06/falco-eks-audit-logs/)
 
@@ -29,11 +29,11 @@ https://falco.org/
 
 In AWS console -> Elastic Kubernetes Cluster -> choose you cluster -> Observability tab -> Manage logging
 
-![k8s-security](images/falco-k8s-audit-logs/1.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/1.png)
 
 In Manage logging, enable 'Audit' and click 'Save changes'
 
-![k8s-security](images/falco-k8s-audit-logs/2.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/2.png)
 
 ## Create IAM role and policy for Falco
 
@@ -196,11 +196,11 @@ helm install falco falcosecurity/falco --namespace falco \
 
 hmm, I see Falco pod in  'CrashLoopBackOff' state:
 
-![k8s-security](images/falco-k8s-audit-logs/3.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/3.png)
 
 Checking the logs I see 'AccessDenied: Not authorized to perform sts:AssumeRoleWithWebIdentity' message:
 
-![k8s-security](images/falco-k8s-audit-logs/4.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/4.png)
 
 Meaning I need to validate IAM role created properly.
 
@@ -228,10 +228,10 @@ The 'system:serviceaccount:falco:falco', meaning you must have 'falco' service a
 
 **In case of successful Install you will see output like this**:
 
-![k8s-security](images/falco-k8s-audit-logs/5.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/5.png)
 
 
-![k8s-security](images/falco-k8s-audit-logs/6.png)
+![devsecops-on-steroids](images/falco-k8s-audit-logs/6.png)
 
 **Last two rows is important**:
 
@@ -240,7 +240,7 @@ The 'system:serviceaccount:falco:falco', meaning you must have 'falco' service a
 
 You can 'kubectl exec' the pod and see default set of rules is downloaded and used with k8s audit plugin, it's k8s_audit_rules.yaml:
 
-![]({{site.baseurl}}/images/k8s-security/falco/k8s-audit-logs/7.png)
+![]({{site.baseurl}}/images/devsecops-on-steroids/falco/k8s-audit-logs/7.png)
 
 **To see all triggered alerts by Falco run**:
 
