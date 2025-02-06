@@ -1,6 +1,6 @@
 ## Moving to Bottlerocket OS for Enhanced Security & Performance
 
-![devsecops-on-steroids](images/falco-k8s-audit-logs/0.png)
+![devsecops-on-steroids](images/bottlerocket-os.png)
 
 [This tutorial on my blog](https://igorzhivilo.com/2024/05/06/falco-eks-audit-logs/)
 
@@ -77,7 +77,7 @@ spec:
 
 To use Bottlerocket OS, we need to specify the Bottlerocket OS AMI:
 
-```
+```yaml
 amiFamily: Bottlerocket
   blockDeviceMappings:
   - deviceName: /dev/xvda
@@ -109,7 +109,8 @@ amiFamily: Bottlerocket
 To avoid these issues, be mindful of your volume definitions when provisioning Bottlerocket OS instances!
 
 ### Here is the final YAML configuration for the NodePool:
-```
+
+```yaml
 apiVersion: karpenter.k8s.aws/v1beta1
 kind: EC2NodeClass
 metadata:
@@ -190,7 +191,7 @@ Instead of SSH, AWS SSM Session Manager allows you to connect securely to your B
 • The EC2 instance profile must have the AmazonSSMManagedInstanceCore policy.
 
 3. Start a Session Using AWS CLI:
-```yaml
+```bash
 aws ssm start-session --target <instance-id>
 ```
 
