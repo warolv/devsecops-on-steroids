@@ -26,3 +26,8 @@ In this tutorial, I will show how to:
 In previous tutorial I used **Falco** plugin for **K8s Audit Logs**
 
 And for this tutorial I will use **driver** called **Kernel Module**, in order to monitor system events from the kernel and trying to detect malicious behaviors on Linux systems.
+
+### 4. [Moving to Bottlerocket OS for Enhanced Security & Performance](bottlerocket-os.md)
+
+In this tutorial, I will walk you through migrating your Amazon EKS worker nodes to Bottlerocket OS, troubleshooting Bottlerocket OS, and sharing the challenges I encountered during the process.
+
