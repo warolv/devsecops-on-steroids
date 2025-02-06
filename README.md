@@ -2,7 +2,7 @@
 
 ### A comprehensive tutorial series on essential DevSecOps tools and best practices.
 
-![devsecops-steroids](images/devsecops-steroids.png =400x400)
+<img src="images/devsecops-steroids.png" width="500"/>
 
 ### 1. [Secure namespaces in Kubernetes cluster using RBAC](secure-ns-k8s-rbac.md)
 
