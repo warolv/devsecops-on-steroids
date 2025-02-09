@@ -2,7 +2,7 @@
 
 ![devsecops-on-steroids](images/bottlerocket-os.png)
 
-[This tutorial on my blog](https://igorzhivilo.com/2024/05/06/falco-eks-audit-logs/)
+[This tutorial on my blog](https://igorzhivilo.com)
 
 In this tutorial, I will walk you through migrating your Amazon EKS worker nodes to Bottlerocket OS, troubleshooting Bottlerocket OS, and sharing the challenges I encountered during the process.
 
@@ -157,7 +157,7 @@ Unlike Amazon Linux 2 (AL2), Bottlerocket OS does not support direct SSH access 
 However, if you need SSH access to your Bottlerocket worker nodes, follow these methods:
 
 ### Option 1: Use Admin container
-Bottlerocket has an administrative container, disabled by default, that runs outside of the orchestrator in a separate instance of containerd. This container has an SSH server that lets you log in as ec2-user using your EC2-registered SSH key. Outside of AWS, you can pass in your own SSH keys. (You can easily replace this admin container with your own just by changing the URI; see Settings.
+Bottlerocket has an [administrative container](https://github.com/bottlerocket-os/bottlerocket-admin-container), disabled by default, that runs outside of the orchestrator in a separate instance of containerd. This container has an SSH server that lets you log in as ec2-user using your EC2-registered SSH key. Outside of AWS, you can pass in your own SSH keys. (You can easily replace this admin container with your own just by changing the URI; see Settings.
 
 To enable the container, you can change the setting in user data when starting Bottlerocket, for example EC2 instance user data:
 
@@ -168,7 +168,7 @@ enabled = true
 
 ### How do I use kubectl debug node with Bottlerocket?
 
-The debug node option from kubectl can be used to gain access to a Bottlerocket node as follows:
+The [debug node option](https://kubernetes.io/docs/tasks/debug/debug-cluster/kubectl-node-debug/) from kubectl can be used to gain access to a Bottlerocket node as follows:
 
 ```yaml
 kubectl debug node/<node name> -it --image=ubuntu --profile=sysadmin
@@ -184,11 +184,11 @@ Instead of SSH, AWS SSM Session Manager allows you to connect securely to your B
 
 1. Ensure Your EC2 Instance Has the SSM Agent Installed
 
-• Bottlerocket already includes the SSM Agent by default.
+  • Bottlerocket already includes the SSM Agent by default.
 
 2. Attach the Necessary IAM Role to the Instance
 
-• The EC2 instance profile must have the AmazonSSMManagedInstanceCore policy.
+  • The EC2 instance profile must have the AmazonSSMManagedInstanceCore policy.
 
 3. Start a Session Using AWS CLI:
 ```bash
@@ -230,7 +230,7 @@ Thank you for reading, I hope you enjoyed it, see you in the next post.
 
 Please subscribe to my [YT channel](https://www.youtube.com/@igorzhivilo) and [twitter](https://twitter.com/warolv), to be notified when the next tutorial is published.
 
-You can find it also in my [blog](https://igorzhivilo.com/2024/01/14/secure-namespaces-k8s-rbac/)
+You can find it also in my [blog](https://igorzhivilo.com)
 
 
 
