@@ -73,16 +73,29 @@ before_script:
 * All TF code located in terraform directory
 * A JUnit report will be generated and attached to each pipeline run for better visibility of the test results.
 * In my example, I used two security policies related to S3 bucket security: CKV_AWS_19 and CKV_AWS_20 (--check flag means, allow only the two specified checks to run ).
-	• CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
-	• CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
+
+    * CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
+
+    * CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
 
 This serves as a great starting point, and you can gradually expand by adding more security policies over time.
 
 
 ### Configuring enforcement to fail the pipeline on failed checks.
 
-1. Go to: Setting ->  'merge requests'
+1. Go to: Setting -> 'merge requests'
 ![devsecops-on-steroids](images/checkov-ci/1.png)
+
 
 2. Enable 'Pipelines must succeed' checkbox and click save
 ![devsecops-on-steroids](images/checkov-ci/2.png)
+
+
+### My recommended initial policy set for getting started.
+
+List of all policies you can find here:
+https://www.checkov.io/5.Policy%20Index/all.html
+
+
+
+### Sharing my experiences and insights on common issues I’ve encountered.
