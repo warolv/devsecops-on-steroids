@@ -84,10 +84,12 @@ This serves as a great starting point, and you can gradually expand by adding mo
 ### Configuring enforcement to fail the pipeline on failed checks.
 
 1. Go to: Setting -> 'merge requests'
+
 ![devsecops-on-steroids](images/checkov-ci/1.png)
 
 
 2. Enable 'Pipelines must succeed' checkbox and click save
+
 ![devsecops-on-steroids](images/checkov-ci/2.png)
 
 
