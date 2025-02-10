@@ -2,7 +2,7 @@
 
 ![devsecops-on-steroids](images/bottlerocket-os.png)
 
-[This tutorial on my blog](https://igorzhivilo.com)
+[This tutorial on my blog](https://igorzhivilo.com/2025/02/06/bottlerocket-os/)
 
 In this tutorial, I will walk you through migrating your Amazon EKS worker nodes to Bottlerocket OS, troubleshooting Bottlerocket OS, and sharing the challenges I encountered during the process.
 
