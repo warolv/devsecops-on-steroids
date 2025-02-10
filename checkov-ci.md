@@ -97,18 +97,18 @@ This serves as a great starting point, and you can gradually expand by adding mo
 > Note: Since we primarily work with AWS, we will focus on AWS-specific policies.
 
 1️⃣ Choose an Initial Resource
-	  *	Start with a single resource, such as an S3 bucket (as in this example).
+	  * Start with a single resource, such as an S3 bucket (as in this example).
 
 2️⃣ Apply a Minimal Set of Security Policies
-	  *	Begin with essential security checks for S3:
-	  *	CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
-	  *	CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
+	  * Begin with essential security checks for S3:
+	  * CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
+	  * CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
 
 3️⃣ Align with Existing Terraform Code & Fix Issues
-	  *	Review current Terraform configurations and remediate any violations based on policy findings.
+	  * Review current Terraform configurations and remediate any violations based on policy findings.
 
 4️⃣ Incrementally Add More Policies Over Time
-	  *	Introduce additional policies every quarter, ensuring a gradual and manageable improvement.
+	  * Introduce additional policies every quarter, ensuring a gradual and manageable improvement.
 
 📌 Each iteration should expand coverage—start with S3, refine policies, and then extend to other AWS resources as needed. 🚀
 
@@ -151,19 +151,19 @@ resource "aws_s3_bucket" "foo-bucket" {
 [list of all policies](https://www.checkov.io/5.Policy%20Index/all.html)
 
 1. S3 Bucket Security:
-  *	CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
-  *	CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
+  * CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
+  * CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
 
 2. Security Groups:
-  *	CKV_AWS_25: Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389	
-  *	CKV_AWS_24: Ensures no security groups allow ingress from 0.0.0.0/0 to port 22.
+  * CKV_AWS_25: Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389	
+  * CKV_AWS_24: Ensures no security groups allow ingress from 0.0.0.0/0 to port 22.
 
 3. EC2 Instances:
-  *	CKV_AWS_8: Ensures all data stored in the EBS is securely encrypted at rest.
+  * CKV_AWS_8: Ensures all data stored in the EBS is securely encrypted at rest.
 
 4. RDS Instances:
-  *	CKV_AWS_17: Ensures all data stored in the RDS is securely encrypted at rest.
-  *	CKV_AWS_18: Ensures RDS instances are not publicly accessible.
+  * CKV_AWS_17: Ensures all data stored in the RDS is securely encrypted at rest.
+  * CKV_AWS_18: Ensures RDS instances are not publicly accessible.
 
 5. Amazon Elastic Block Store (EBS):
 	*	CKV_AWS_3: Ensures that EBS volumes are encrypted.
