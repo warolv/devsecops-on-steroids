@@ -1,4 +1,4 @@
-## CI/CD Security: Using Checkov to Enforce Best Practices
+## CI/CD Security: Using Checkov to enforce security with terraform
 
 ![devsecops-on-steroids](images/checkov-ci/0.png)
 
