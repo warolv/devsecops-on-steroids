@@ -5,10 +5,10 @@
 [This tutorial on my blog](https://igorzhivilo.com/2025/02/13/checkov-ci/)
 
 In this tutorial, I will guide you through the following:
-* Integrating Checkov into your GitLab pipeline to enforce security best practices.
+* Integrating Checkov into your gitlab pipeline to enforce security best practices for your Terraform scripts.
 * Enabling specific individual security checks.
 * Configuring enforcement to fail the pipeline on failed checks.
-* My recommended initial policy set for getting started.
+* Gradually expanding policy recommendations
 * Sharing my experiences and insights on common issues I’ve encountered.
 
 ### 🚀 Why Use Checkov?
@@ -50,8 +50,6 @@ static-test:
     entrypoint:
       - '/usr/bin/env'
       - 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
-  before_script:
-    - pip install checkov
   script:
     - checkov -d terraform --check CKV_AWS_19,CKV_AWS_20 | tee checkov.test.xml
   artifacts:
@@ -93,11 +91,39 @@ This serves as a great starting point, and you can gradually expand by adding mo
 ![devsecops-on-steroids](images/checkov-ci/2.png)
 
 
-### My recommended initial policy set for getting started.
+### Gradually Expanding Policy Recommendations
 
-List of all policies you can find here:
-https://www.checkov.io/5.Policy%20Index/all.html
+> Note: Since we primarily work with AWS, we will focus on AWS-specific policies.
+
+1️⃣ Choose an Initial Resource
+	•	Start with a single resource, such as an S3 bucket (as in this example).
+
+2️⃣ Apply a Minimal Set of Security Policies
+	•	Begin with essential security checks for S3:
+	•	CKV_AWS_19: Ensures that server-side encryption is enabled for the S3 bucket.
+	•	CKV_AWS_20: Ensures that the S3 bucket is not publicly accessible.
+
+3️⃣ Align with Existing Terraform Code & Fix Issues
+	•	Review current Terraform configurations and remediate any violations based on policy findings.
+
+4️⃣ Incrementally Add More Policies Over Time
+	•	Introduce additional policies every quarter, ensuring a gradual and manageable improvement.
+
+📌 Each iteration should expand coverage—start with S3, refine policies, and then extend to other AWS resources as needed. 🚀
+
+
+### AWS Policies to Gradually Incorporate into Your Pipeline
 
 
 
-### Sharing my experiences and insights on common issues I’ve encountered.
+### WIP
+
+custom policy?
+
+Suppressing and skipping policies inside code?
+
+Checkov Config File
+
+soft fail vs enforcement?
+
+baseline 
