@@ -166,14 +166,14 @@ resource "aws_s3_bucket" "foo-bucket" {
   * CKV_AWS_18: Ensures RDS instances are not publicly accessible.
 
 5. Amazon Elastic Block Store (EBS):
-	*	CKV_AWS_3: Ensures that EBS volumes are encrypted.
-	*	CKV_AWS_144: Ensures that EBS volumes have snapshots enabled for backup purposes.
+  * CKV_AWS_3: Ensures that EBS volumes are encrypted.
+  * CKV_AWS_144: Ensures that EBS volumes have snapshots enabled for backup purposes.
 
 6. Amazon Elastic Kubernetes Service (EKS):
-	*	CKV_AWS_39: Ensures that EKS clusters are not publicly accessible.
+  * CKV_AWS_39: Ensures that EKS clusters are not publicly accessible.
 
 7. AWS Lambda:
-	*	CKV_AWS_116: Ensures that Lambda functions have environment variables encrypted.
+  * CKV_AWS_116: Ensures that Lambda functions have environment variables encrypted.
 
 8. IAM security:
   * CKV_AWS_1: Ensures IAM policies that allow full administrative privileges are not created.
