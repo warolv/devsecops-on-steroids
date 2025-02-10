@@ -132,7 +132,7 @@ directory:
 ```
 
 ### Suppressing and skipping policies inside code
-https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html#:~:text=Suppressing%2Fskipping,-Like%20any%20static&text=For%20example%2C%20if%20a%20resource,run%20or%20skip%20certain%20checks
+[checkov.io docs](https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html#:~:text=Suppressing%2Fskipping,-Like%20any%20static&text=For%20example%2C%20if%20a%20resource,run%20or%20skip%20certain%20checks)
 
 #### Example
 > The following comment skips the CKV_AWS_20 check on the resource identified by foo-bucket, where the scan checks if an AWS S3 bucket is private. In the example, the bucket is configured with a public read access; Adding the suppression comment skips the appropriate check instead of the check failing.
