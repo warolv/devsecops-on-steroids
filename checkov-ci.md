@@ -180,6 +180,7 @@ resource "aws_s3_bucket" "foo-bucket" {
   * CKV_AWS_49: Ensures no IAM policy documents allow “*” as a statement’s actions.
   * CKV_AWS_110: Ensures IAM policies do not allow privilege escalation.
 
+It’s also worth mentioning that [custom policies](https://www.checkov.io/3.Custom%20Policies/Python%20Custom%20Policies.html) can be used with Checkov; however, I’ll cover that in a separate post once I have gained more experience with them.
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
