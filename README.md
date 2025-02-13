@@ -31,3 +31,12 @@ And for this tutorial I will use **driver** called **Kernel Module**, in order t
 
 In this tutorial, I will walk you through migrating your Amazon EKS worker nodes to Bottlerocket OS, troubleshooting Bottlerocket OS, and sharing the challenges I encountered during the process.
 
+### 5. [CI/CD Security: Using Checkov to enforce security with terraform](checkov-ci.md)
+
+The purpose of this tutorial is to provide a solid starting point for enforcing security best practices in your Terraform scripts.
+
+I will walk you through the following steps:
+* Integrating Checkov into your gitlab pipeline.
+* Enabling specific individual security checks.
+* Configuring enforcement to fail the pipeline on failed checks.
+* Gradually expanding policy recommendations.
