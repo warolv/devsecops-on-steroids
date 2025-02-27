@@ -40,3 +40,16 @@ I will walk you through the following steps:
 * Enabling specific individual security checks.
 * Configuring enforcement to fail the pipeline on failed checks.
 * Gradually expanding policy recommendations.
+
+### 6. [Provision a Secure AWS ElastiCache Redis Instance Using Terraform](secured-redis.md)
+
+The goal of this tutorial is to deploy AWS ElastiCache Redis with an emphasis on security best practices.
+
+I will guide you through the following Redis security features:
+
+* Encryption at rest and in transit
+* Network access restrictions
+* IAM integration and authentication for access control
+* Creation of three default users for authorization
+* Terraform script example for deploying Redis
+* Python script example for interacting with Redis
