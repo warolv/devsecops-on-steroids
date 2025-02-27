@@ -114,7 +114,7 @@ This serves as a great starting point, and you can gradually expand by adding mo
 
 > Another useful option is to utilize a baseline that ignores already known issues, allowing you to focus on new ones. To achieve this, you can create a baseline using the --create-baseline option and then apply it during each scan with the --baseline BASELINE option.
 
-#### Usinfg checkov config file
+#### Using checkov config file
 
 You can use a configuration file with Checkov, which can be especially helpful if you have a long list of security checks to manage.
 
