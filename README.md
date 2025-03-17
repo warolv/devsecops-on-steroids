@@ -53,3 +53,9 @@ I will guide you through the following Redis security features:
 * Creation of three default users for authorization
 * Terraform script example for deploying Redis
 * Python script example for interacting with Redis
+
+### 7. [Detect CVEs in Built Images Using Trivy and GitLab CI](trivy-cves.md)
+
+This tutorial focuses on detecting CVEs in built images using Trivy and GitLab CI.
+
+You’ll learn how to integrate Trivy into your GitLab pipeline to detect critical vulnerabilities. I’ll provide code examples demonstrating how we use it at Cynerio and show you how to send Slack notifications when a CVE is detected.
