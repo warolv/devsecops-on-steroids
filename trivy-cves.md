@@ -2,7 +2,7 @@
 
 ![devsecops-on-steroids](images/trivy-cves/0.png)
 
-[This tutorial on my blog](https://igorzhivilo.com/2025/02/23/secured-redis/)
+[This tutorial on my blog](https://igorzhivilo.com/2025/03/12/trivy-cves/)
 
 This tutorial focuses on detecting CVEs in built images using Trivy and GitLab CI.
 
