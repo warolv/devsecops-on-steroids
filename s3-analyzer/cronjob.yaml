@@ -1,0 +1,47 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: s3-analyzer
+  namespace: s3-analyzer
+spec:
+  schedule: "0 0 * * 0"  # Runs every Sunday at midnight UTC
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: s3-analyzer-sa  # Ensure this SA has IAM permissions
+          restartPolicy: Never
+          containers:
+          - name: iam-analyzer
+            image: amazon/aws-cli:latest
+            command:
+              - /bin/sh
+              - -c
+              - |
+                export AWS_REGION="us-east-1"
+                
+                echo "Running AWS IAM Access Analyzer..."
+                ANALYZER_NAME="default-analyzer"
+
+                # Run the analyzer to list public buckets
+                aws accessanalyzer list-findings --analyzer-name "$ANALYZER_NAME" \
+                  --filter "resourceType=S3Bucket,isPublic=true" \
+                  --region "$AWS_REGION" > findings.json
+
+                # Send findings to Slack if there are public buckets
+                if [ -s findings.json ]; then
+                  echo "Public S3 Buckets found. Sending results to Slack..."
+                  curl -X POST -H 'Content-type: application/json' \
+                    --data "{\"text\": \"AWS IAM Access Analyzer detected public S3 buckets. Findings:\n\$(cat findings.json)\"}" \
+                    $SLACK_WEBHOOK_URL
+                else
+                  echo "No public S3 Buckets found."
+                fi
+            env:
+              - name: AWS_REGION
+                value: "us-east-1"
+              - name: SLACK_WEBHOOK_URL
+                valueFrom:
+                  secretKeyRef:
+                    name: slack-webhook
+                    key: url  # Store your Slack webhook in a Kubernetes Secret
