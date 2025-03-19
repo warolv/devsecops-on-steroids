@@ -18,21 +18,26 @@ spec:
               - /bin/sh
               - -c
               - |
-                export AWS_REGION="us-east-1"
-                
                 echo "Running AWS IAM Access Analyzer..."
-                ANALYZER_NAME="default-analyzer"
 
                 # Run the analyzer to list public buckets
-                aws accessanalyzer list-findings --analyzer-name "$ANALYZER_NAME" \
-                  --filter "resourceType=S3Bucket,isPublic=true" \
-                  --region "$AWS_REGION" > findings.json
+                aws accessanalyzer list-findings \
+                  --analyzer-arn "$ANALYZER_ARN" \
+                  --filter '{"resourceType": {"eq": ["AWS::S3::Bucket"]}, "isPublic": {"eq": ["true"]}}' \
+                  --region us-east-1 \
+                  --query "findings[*].resource" > findings.json
 
                 # Send findings to Slack if there are public buckets
                 if [ -s findings.json ]; then
-                  echo "Public S3 Buckets found. Sending results to Slack..."
+                  # install jq
+                  yum install -y jq
+                  jq --version
+                  
+                  export BUCKETS=$(cat findings.json | jq -r '. | join("\n")')
+                  echo "\nPublic buckets discovered: $BUCKETS\nSending results to Slack..."
+
                   curl -X POST -H 'Content-type: application/json' \
-                    --data "{\"text\": \"AWS IAM Access Analyzer detected public S3 buckets. Findings:\n\$(cat findings.json)\"}" \
+                    --data "{\"text\": \"AWS IAM Access Analyzer detected public S3 buckets:\n$BUCKETS\"}" \
                     $SLACK_WEBHOOK_URL
                 else
                   echo "No public S3 Buckets found."
@@ -45,3 +50,9 @@ spec:
                   secretKeyRef:
                     name: slack-webhook
                     key: url  # Store your Slack webhook in a Kubernetes Secret
+              - name: ANALYZER_ARN
+                valueFrom:
+                  secretKeyRef:
+                    name: analyzer-arn
+                    key: arn # Store your analyzer's arn in a Kubernetes Secret
+              
