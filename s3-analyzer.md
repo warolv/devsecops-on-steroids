@@ -146,9 +146,6 @@ spec:
         spec:
           serviceAccountName: s3-analyzer-sa  # Ensure this SA has IAM permissions
           restartPolicy: Never
-          tolerations:
-          - key: CriticalAddonsOnly
-            operator: Exists
           containers:
           - name: iam-analyzer
             image: amazon/aws-cli:latest
