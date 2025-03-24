@@ -60,8 +60,7 @@ This tutorial focuses on detecting CVEs in built images using Trivy and GitLab C
 
 You’ll learn how to integrate Trivy into your GitLab pipeline to detect critical vulnerabilities. I’ll provide code examples demonstrating how we use it at Cynerio and show you how to send Slack notifications when a CVE is detected.
 
-### 8. [Automating the weekly audit of publicly accessible S3 buckets
-](s3-analyzer.md)
+### 8. [Automating the weekly audit of publicly accessible S3 buckets](s3-analyzer.md)
 
 Misconfigured S3 buckets have caused major breaches at companies like Capital One, Facebook, and Verizon — all because no one noticed a public bucket until it was too late.
 
