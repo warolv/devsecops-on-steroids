@@ -59,3 +59,16 @@ I will guide you through the following Redis security features:
 This tutorial focuses on detecting CVEs in built images using Trivy and GitLab CI.
 
 You’ll learn how to integrate Trivy into your GitLab pipeline to detect critical vulnerabilities. I’ll provide code examples demonstrating how we use it at Cynerio and show you how to send Slack notifications when a CVE is detected.
+
+### 8. [Automating the weekly audit of publicly accessible S3 buckets
+](s3-analyzer.md)
+
+Misconfigured S3 buckets have caused major breaches at companies like Capital One, Facebook, and Verizon — all because no one noticed a public bucket until it was too late.
+
+In my latest blog post, I show how to build a fully automated weekly audit pipeline using:
+
+✅ A Kubernetes CronJob
+✅ AWS IAM Access Analyzer
+✅ Slack alerts for real-time visibility
+
+to automate weekly checks using Kubernetes and IAM Access Analyzer
