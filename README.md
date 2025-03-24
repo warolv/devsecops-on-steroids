@@ -67,7 +67,9 @@ Misconfigured S3 buckets have caused major breaches at companies like Capital On
 In my latest blog post, I show how to build a fully automated weekly audit pipeline using:
 
 ✅ A Kubernetes CronJob
+
 ✅ AWS IAM Access Analyzer
+
 ✅ Slack alerts for real-time visibility
 
 to automate weekly checks using Kubernetes and IAM Access Analyzer
